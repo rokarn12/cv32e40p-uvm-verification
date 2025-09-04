@@ -1,0 +1,188 @@
+{
+  "test_configurations": {
+    "cv32e40p_basic_test": {
+      "description": "Basic ALU operations test",
+      "test_class": "cv32e40p_basic_test",
+      "sequence": "cv32e40p_basic_sequence",
+      "enable_coverage": false,
+      "enable_assertions": true,
+      "enable_scoreboard": true,
+      "enable_logging": true,
+      "verbosity": "UVM_LOW",
+      "max_cycles": 1000,
+      "timeout_cycles": 5000,
+      "num_random_instructions": 10,
+      "dut_config": {
+        "COREV_PULP": 0,
+        "COREV_CLUSTER": 0,
+        "FPU": 0,
+        "ZFINX": 0,
+        "NUM_MHPMCOUNTERS": 1,
+        "FPU_ADDMUL_LAT": 0,
+        "FPU_OTHERS_LAT": 0
+      },
+      "alu_config": {
+        "focus_alu_testing": true,
+        "enable_vector_ops": true,
+        "enable_div_ops": false,
+        "enable_bit_manip": true
+      },
+      "build_options": {
+        "enable_waves": false,
+        "enable_debug": true,
+        "optimization_level": "none"
+      }
+    },
+    "cv32e40p_edge_test": {
+      "description": "Edge case testing for ALU operations",
+      "test_class": "cv32e40p_edge_test",
+      "sequence": "cv32e40p_edge_case_sequence",
+      "enable_coverage": true,
+      "enable_assertions": true,
+      "enable_scoreboard": true,
+      "enable_logging": true,
+      "verbosity": "UVM_MEDIUM",
+      "max_cycles": 500,
+      "timeout_cycles": 2000,
+      "num_random_instructions": 5,
+      "dut_config": {
+        "COREV_PULP": 0,
+        "COREV_CLUSTER": 0,
+        "FPU": 0,
+        "ZFINX": 0,
+        "NUM_MHPMCOUNTERS": 1,
+        "FPU_ADDMUL_LAT": 0,
+        "FPU_OTHERS_LAT": 0
+      },
+      "alu_config": {
+        "focus_alu_testing": true,
+        "enable_vector_ops": false,
+        "enable_div_ops": false,
+        "enable_bit_manip": false
+      },
+      "build_options": {
+        "enable_waves": true,
+        "enable_debug": true,
+        "optimization_level": "none"
+      }
+    },
+    "cv32e40p_comprehensive_test": {
+      "description": "Comprehensive ISA verification with diverse stimulus",
+      "test_class": "cv32e40p_comprehensive_test",
+      "sequence": "cv32e40p_comprehensive_sequence",
+      "enable_coverage": true,
+      "enable_assertions": true,
+      "enable_scoreboard": true,
+      "enable_logging": true,
+      "verbosity": "UVM_MEDIUM",
+      "max_cycles": 10000,
+      "timeout_cycles": 50000,
+      "num_random_instructions": 300,
+      "dut_config": {
+        "COREV_PULP": 1,
+        "COREV_CLUSTER": 0,
+        "FPU": 0,
+        "ZFINX": 0,
+        "NUM_MHPMCOUNTERS": 4,
+        "FPU_ADDMUL_LAT": 0,
+        "FPU_OTHERS_LAT": 0
+      },
+      "alu_config": {
+        "focus_alu_testing": false,
+        "enable_vector_ops": true,
+        "enable_div_ops": true,
+        "enable_bit_manip": true,
+        "enable_pulp_extensions": true,
+        "enable_hazard_injection": true,
+        "enable_corner_cases": true
+      },
+      "build_options": {
+        "optimization_level": "comprehensive",
+        "enable_waves": true,
+        "enable_debug": true
+      }
+    },
+    "cv32e40p_fpu_test": {
+      "description": "Test with FPU enabled",
+      "test_class": "cv32e40p_basic_test",
+      "sequence": "cv32e40p_basic_sequence",
+      "enable_coverage": true,
+      "enable_assertions": true,
+      "enable_scoreboard": true,
+      "enable_logging": true,
+      "verbosity": "UVM_LOW",
+      "max_cycles": 2000,
+      "timeout_cycles": 10000,
+      "num_random_instructions": 50,
+      "dut_config": {
+        "COREV_PULP": 0,
+        "COREV_CLUSTER": 0,
+        "FPU": 1,
+        "ZFINX": 0,
+        "NUM_MHPMCOUNTERS": 1,
+        "FPU_ADDMUL_LAT": 1,
+        "FPU_OTHERS_LAT": 1
+      },
+      "alu_config": {
+        "focus_alu_testing": true,
+        "enable_vector_ops": true,
+        "enable_div_ops": true,
+        "enable_bit_manip": true
+      },
+      "build_options": {
+        "enable_waves": false,
+        "enable_debug": true,
+        "optimization_level": "none"
+      }
+    },
+    "cv32e40p_stress_test": {
+      "description": "Driver stress test with many transactions",
+      "test_class": "cv32e40p_basic_test",
+      "sequence": "cv32e40p_basic_sequence",
+      "enable_coverage": false,
+      "enable_assertions": true,
+      "enable_scoreboard": true,
+      "enable_logging": true,
+      "verbosity": "UVM_LOW",
+      "max_cycles": 50000,
+      "timeout_cycles": 100000,
+      "num_random_instructions": 200,
+      "dut_config": {
+        "COREV_PULP": 0,
+        "COREV_CLUSTER": 0,
+        "FPU": 0,
+        "ZFINX": 0,
+        "NUM_MHPMCOUNTERS": 1,
+        "FPU_ADDMUL_LAT": 0,
+        "FPU_OTHERS_LAT": 0
+      },
+      "alu_config": {
+        "focus_alu_testing": true,
+        "enable_vector_ops": true,
+        "enable_div_ops": false,
+        "enable_bit_manip": true
+      },
+      "build_options": {
+        "enable_waves": false,
+        "enable_debug": true,
+        "optimization_level": "none"
+      }
+    }
+  },
+  "default_config": {
+    "simulator": "vcs",
+    "work_dir": "work",
+    "log_dir": "logs",
+    "coverage_dir": "coverage",
+    "waves_dir": "waves",
+    "compile_options": [
+      "-sverilog",
+      "-full64",
+      "-timescale=1ns/1ps",
+      "-debug_access+r"
+    ],
+    "simulation_options": [
+      "-l simulation.log"
+    ]
+  }
+}

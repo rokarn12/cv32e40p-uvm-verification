@@ -1,0 +1,47 @@
+# Simulation files
+*.log
+*.vcd
+*.fsdb
+*.vpd
+simv*
+*.daidir/
+csrc/
+*.o
+*.so
+*.a
+
+# UVM/SystemVerilog compilation
+work/
+*.sv.bak
+*.svh.bak
+ucli.key
+vc_hdrs.h
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.pytest_cache/
+
+# Coverage files
+*.cov
+coverage.dat
+urgReport/
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp

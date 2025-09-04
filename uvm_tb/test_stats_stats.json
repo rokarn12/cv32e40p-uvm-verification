@@ -1,0 +1,11 @@
+{
+  "total_instructions": 10,
+  "instruction_types": {
+    "load": 3,
+    "branch": 3,
+    "alu": 3,
+    "div": 1
+  },
+  "estimated_cycles": 50,
+  "estimated_ipc": 0.2
+}

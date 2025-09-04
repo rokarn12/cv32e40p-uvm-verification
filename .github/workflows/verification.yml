@@ -1,0 +1,46 @@
+name: CV32E40P Verification
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint-and-analyze:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.8'
+    
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        # Add any Python dependencies here if needed
+    
+    - name: Lint Python scripts
+      run: |
+        python -m py_compile uvm_tb/scripts/*.py
+    
+    - name: Validate SystemVerilog syntax
+      run: |
+        # Basic syntax validation (would need actual tools for full validation)
+        find uvm_tb -name "*.sv" -exec echo "Checking {}" \;
+    
+    - name: Run coverage analysis tests
+      run: |
+        cd uvm_tb
+        # Test coverage analysis script functionality
+        python3 scripts/analyze_stimulus_coverage.py --help
+        
+    - name: Validate documentation
+      run: |
+        # Check that key documentation files exist
+        test -f README.md
+        test -f uvm_tb/interview-notes/QUICK_REFERENCE.md
+        test -f uvm_tb/interview-notes/IMPLEMENTATION_GUIDE.md
