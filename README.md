@@ -221,7 +221,6 @@ uvm_tb/
 ├── src/                    # RTL interfaces
 ├── tests/                  # UVM test classes
 ├── work/                   # Generated files and logs
-└── interview-notes/        # Interview preparation materials
 ```
 
 ## Performance Characteristics
@@ -346,9 +345,8 @@ time python3 scripts/analyze_stimulus_coverage.py -d work/logs
 
 For questions or issues:
 1. Check the troubleshooting section above
-2. Review the interview notes in `interview-notes/`
-3. Examine the comprehensive validation reports
-4. Refer to the implementation guide for technical details
+2. Examine the comprehensive validation reports
+3. Refer to the implementation guide for technical details
 
 ---
 
